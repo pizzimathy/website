@@ -22,6 +22,7 @@ function login() {
             .send({username: username, password: password})
             .set("Content-Type", "application/json")
             .end(function (err, res) {
+                console.log(err, res);
                 if (err)
                     badLogin.style.display = "block";
                 else

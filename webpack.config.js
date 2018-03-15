@@ -6,5 +6,8 @@ module.exports = {
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "www/dist")
+    },
+    externals: {
+        Quill: "quill"
     }
 }

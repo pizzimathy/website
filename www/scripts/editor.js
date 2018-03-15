@@ -15,14 +15,17 @@ function save() {
         Post.title = title.value;
         Post.subtitle = subtitle.value;
         Post.body = editor.innerHTML;
-        Post.published = published.checked;
+        Post.created = Date.now();
 
         request
             .post("/api/posts/save")
             .send(Post)
             .set("Content-Type", "application/json")
             .end(function (err, res) {
-                
+                if (err)
+                    window.alert("Couldn't be saved.");
+                else if (res)
+                    window.alert("Saved.");
             });
     });
 }
@@ -35,11 +38,11 @@ module.exports = function () {
             request
                 .get("/api/loggedIn")
                 .end(function (err, res) {
-                    console.log(err, res);
                     if (res.text == "false")
                         window.location.pathname = "/login";
 
                     config();
+                    save();
                 });
         }
     );
