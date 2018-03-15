@@ -21,7 +21,7 @@ function displayPost(data, loggedIn) {
     document.title = data.title;
 
     // fill in all the page info
-    content.innerHTML = data.content;
+    content.innerHTML = data.body;
     title.innerText = data.title;
     subtitle.innerText = data.subtitle;
     created.innerText = new Date(data.created).toLocaleDateString();
@@ -35,7 +35,9 @@ function displayEditIfAuth(res) {
 }
 
 module.exports = function () {
-    util.onLoad("isPost", function () {
-        util.checkAuth(displayEditIfAuth);
-    });
+    if (window.location.pathname.split("/").length >= 3 && window.location.pathname.split("/")[1] == "posts") {
+        util.onLoad("isPost", function () {
+            util.checkAuth(displayEditIfAuth);
+        });
+    }
 }

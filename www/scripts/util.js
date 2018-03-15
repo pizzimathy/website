@@ -15,12 +15,13 @@ function checkPath(path) {
 
 function onLoad(path, callback, errorCallback) {
     document.addEventListener("DOMContentLoaded", function (e) {
-        if (path == "isPost")
+        if (path == "isPost" || path == "isEditor") {
             callback();
-        else if (checkPath(path))
+        } else if (checkPath(path)) {
             callback();
-        else if (errorCallback)
+        } else if (errorCallback) {
             errorCallback();
+        }
     });
 }
 

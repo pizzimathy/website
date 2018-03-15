@@ -9,5 +9,6 @@ module.exports = {
     },
     externals: {
         Quill: "quill"
-    }
+    },
+    devtool: "#eval-source-map"
 }
