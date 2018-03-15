@@ -1,0 +1,36 @@
+#editor-stage {
+  width: 600px;
+  margin: 0 auto;
+  padding: 5px; }
+  #editor-stage #editor {
+    border: 1px solid grey;
+    width: inherit;
+    height: 400px;
+    margin: 10px 0; }
+  #editor-stage #buttons {
+    text-align: center;
+    margin-bottom: 10px; }
+    #editor-stage #buttons button {
+      height: 40px;
+      width: 100px;
+      font-size: 20px;
+      text-align: center; }
+      #editor-stage #buttons button:hover {
+        cursor: pointer; }
+  #editor-stage .save-or-publish {
+    text-align: center;
+    display: none;
+    color: white;
+    font-weight: bold;
+    padding: 3px; }
+  #editor-stage #bad {
+    background-color: red; }
+  #editor-stage #good {
+    background-color: green; }
+
+.input-fields {
+  text-align: center;
+  padding: 2.5px;
+  margin-bottom: 5px; }
+
+/*# sourceMappingURL=editor.css.map */
