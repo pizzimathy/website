@@ -1,11 +1,11 @@
 
 var request = require("superagent");
 
-function checkAuth() {
-    superagent
+function checkAuth(callback) {
+    request
         .get("/api/loggedIn")
         .end(function (err, res) {
-            return res;
+            callback(res)
         });
 }
 
@@ -15,7 +15,9 @@ function checkPath(path) {
 
 function onLoad(path, callback, errorCallback) {
     document.addEventListener("DOMContentLoaded", function (e) {
-        if (checkPath(path))
+        if (path == "isPost")
+            callback();
+        else if (checkPath(path))
             callback();
         else if (errorCallback)
             errorCallback();

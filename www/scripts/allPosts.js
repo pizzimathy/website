@@ -21,10 +21,10 @@ function createPostLinks(data, loggedIn) {
     for (i = 0; i < titles.length; i++) {
         preview = document.createElement("div");
         preview.className = "preview";
-        preview.innerHTML = "<a style=\"font-weight: bold\" target=\"blank\" href=\"" + keys[i] + "\">" + titles[i] + "</a>";
+        preview.innerHTML = "<a style=\"font-weight: bold\" target=\"blank\" href=\"/posts/" + keys[i] + "\">" + titles[i] + "</a>";
 
         if (loggedIn)
-            preview.innerHTML += " <a style=\"font-size:12px\" href=\"/editor/\"" + keys[i] + "\">(edit)</a>";
+            preview.innerHTML += " <a style=\"font-size:12px\" href=\"/editor/" + keys[i] + "\">(edit)</a>";
 
         stage.appendChild(preview);
         math();
@@ -34,8 +34,8 @@ function createPostLinks(data, loggedIn) {
 function displayEditIfAuth(res) {
     if (res.text == "false")
         getPostData(createPostLinks, false);
-
-    getPostData(createPostLinks, true);
+    else
+        getPostData(createPostLinks, true);
 }
 
 module.exports = function() {

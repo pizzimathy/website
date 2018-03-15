@@ -30,20 +30,16 @@ function save() {
     });
 }
 
+function redirectIfNotAuth(res) {
+    if (res.text == "false")
+        window.location.pathname = "/login";
+
+    config();
+    save();
+}
+
 module.exports = function () {
-    util.onLoad("editor",
-        function () {
-
-            // check if logged in
-            request
-                .get("/api/loggedIn")
-                .end(function (err, res) {
-                    if (res.text == "false")
-                        window.location.pathname = "/login";
-
-                    config();
-                    save();
-                });
-        }
-    );
+    util.onLoad("editor", function () {
+        util.checkAuth(redirectIfNotAuth);
+    });
 }
