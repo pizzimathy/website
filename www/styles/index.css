@@ -9,6 +9,13 @@
   border-top: 1px dashed black; }
   #stage img {
     width: 600px; }
+  #stage .header-img {
+    width: 320px;
+    height: 426px; }
+  #stage #img-container {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center; }
   #stage pre {
     background-color: #d8d8d8;
     border-radius: 5px;
@@ -33,6 +40,31 @@
   #stage blockquote {
     color: #727984;
     font-style: italic; }
+  #stage table {
+    margin: 0 auto;
+    padding: 0; }
+    #stage table tr {
+      border-top: 1px solid #cccccc;
+      background-color: white;
+      margin: 0;
+      padding: 0; }
+      #stage table tr:nth-child(2n) {
+        background-color: #f8f8f8; }
+      #stage table tr th {
+        font-weight: bold;
+        border: 1px solid #cccccc;
+        text-align: left;
+        margin: 0;
+        padding: 6px 13px; }
+      #stage table tr td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        margin: 0;
+        padding: 6px 13px; }
+      #stage table tr th :first-child, #stage table tr td :first-child {
+        margin-top: 0; }
+      #stage table tr th :last-child, #stage table tr td :last-child {
+        margin-bottom: 0; }
 
 button {
   font-size: 14px;
