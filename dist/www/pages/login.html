@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="header.css"/>
     <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="editor.css"/>
+    <link rel="stylesheet" href="login.css"/>
 
     <link rel="icon" href="8bit-pc.gif" type="image/gif">
 
@@ -25,28 +25,15 @@
         </ul>
     </div>
     <div id="stage">
-        <div id="editor-stage">
-            <!-- title and subtitle form -->
-            <form id="title-form">
-                <div class="input-fields"> <input type="text" id="title" placeholder="Title"> </div>
-                <div class="input-fields"> <input type="text" id="subtitle" placeholder="Subtitle"> </div>
+        <div class="signin">
+            <div class="bad-login">Incorrect username or password.</div>
+            <form id="existing-signin">
+                <div class="input-fields"> <input type="text" id="username" placeholder="username"> </div>
+                <div class="input-fields"> <input type="password" id="password" placeholder="password"> </div>
             </form>
-
-            <!-- editor -->
-            <div id="editor"></div>
-
-            <div id="buttons">
-                <button id="cancel-button" type="button">Cancel</button>
-                <button id="save-button" type="button">Save</button>
-            </div>
+            <button id="login-button" type="button" form="existing-signin">Log in</button>
         </div>
     </div>
-
-    <div id="modal"></div>
-
-    <!-- editor script -->
-    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
-    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <div class="spacer"></div>
 </body>
 </html>
