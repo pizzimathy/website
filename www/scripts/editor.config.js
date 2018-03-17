@@ -6,7 +6,7 @@ var toolbarOptions = [
         [{ "header": 1 }, { "header": 2 }],               // custom button values
         [{ "list": "ordered"}, { "list": "bullet" }],
 
-        ["link", "image"]
+        ["link"]
     ];
 
 /**

@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 5px; }
   #editor-stage #editor {
-    border: 1px solid grey;
+    border: 1px solid #CCCCCC;
     width: inherit;
     height: 400px;
     margin: 10px 0; }

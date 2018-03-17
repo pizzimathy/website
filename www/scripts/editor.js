@@ -3,6 +3,17 @@ var request = require("superagent"),
     config = require("./editor.config"),
     util = require("./util");
 
+function addImage() {
+    document.getElementById("addImage-button").addEventListener("click", function () {
+        var editor = document.getElementsByClassName("ql-editor")[0],
+            url = window.prompt("Enter the image's URL:", "http://example.com/image.png"),
+            img = new Image();
+
+        img.src = url;
+        editor.appendChild(img);
+    });
+}
+
 function cancel() {
     document.getElementById("cancel-button").addEventListener("click", function () {
         var cancel = window.confirm("Are you sure? All your changes will be erased, and you'll be returned to the post list.");
@@ -100,6 +111,7 @@ function redirectIfNotAuth(res, existing) {
         save(false);
     }
 
+    addImage();
     cancel();
     config();
 }

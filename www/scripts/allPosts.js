@@ -14,8 +14,8 @@ function getPostData(callback, loggedIn) {
 function createPostLinks(data, loggedIn) {
     var stage = document.getElementById("stage"),
         href = "/posts/",
-        titles = data.titles,
-        keys = data.keys,
+        titles = data.titles.reverse(),
+        keys = data.keys.reverse(),
         i, preview;
 
     for (i = 0; i < titles.length; i++) {

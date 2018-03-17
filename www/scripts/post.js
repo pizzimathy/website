@@ -1,6 +1,7 @@
 
 var request = require("superagent"),
-    util = require("./util");
+    util = require("./util"),
+    math = require("./math");
 
 function getPostData(callback, loggedIn) {
     var id = window.location.pathname.split("/")[2];
@@ -25,6 +26,7 @@ function displayPost(data, loggedIn) {
     title.innerText = data.title;
     subtitle.innerText = data.subtitle;
     created.innerText = new Date(data.created).toLocaleDateString();
+    math();
 }
 
 function displayEditIfAuth(res) {
