@@ -26,7 +26,7 @@ function login() {
                     badLogin.style.display = "block";
                 else
                     util.storeUser(JSON.parse(res.text));
-                    window.history.back();
+                    window.location.pathname = "/";
                     window.location.reload();
             });
     });
