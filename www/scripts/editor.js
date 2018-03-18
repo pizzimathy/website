@@ -102,7 +102,7 @@ function populate(data) {
 }
 
 function redirectIfNotAuth(res, existing) {
-    if (res.text == "false")
+    if (res == false)
         window.location.pathname = "/login";
 
     if (existing) {
@@ -120,8 +120,8 @@ module.exports = function () {
     var loc = window.location.pathname.split("/");
     if (loc.length < 3) {
         util.onLoad("editor", function () {
-            util.checkAuth(function (res) {
-                redirectIfNotAuth(res, false);
+            util.checkAuth(function (user) {
+                redirectIfNotAuth(user, false);
             });
         });
     } else if (loc.length >= 3 && loc[1] == "editor") {

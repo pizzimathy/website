@@ -7,7 +7,7 @@ function getPostData(callback, loggedIn) {
     var id = window.location.pathname.split("/")[2];
     request
         .get("/api/posts/" + id)
-        .end(function (req, res) {
+        .end(function (err, res) {
             callback(JSON.parse(res.text), loggedIn);
         });
 }
@@ -29,8 +29,8 @@ function displayPost(data, loggedIn) {
     math();
 }
 
-function displayEditIfAuth(res) {
-    if (res.text == "false")
+function displayEditIfAuth(user) {
+    if (!user)
         getPostData(displayPost, false);
     else
         getPostData(displayPost, true);

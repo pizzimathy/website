@@ -31,8 +31,8 @@ function createPostLinks(data, loggedIn) {
     }
 }
 
-function displayEditIfAuth(res) {
-    if (res.text == "false")
+function displayEditIfAuth(user) {
+    if (!user)
         getPostData(createPostLinks, false);
     else
         getPostData(createPostLinks, true);
@@ -40,6 +40,6 @@ function displayEditIfAuth(res) {
 
 module.exports = function() {
     util.onLoad("posts", function () {
-        util.checkAuth(displayEditIfAuth)
+        util.checkAuth(displayEditIfAuth);
     });
 }

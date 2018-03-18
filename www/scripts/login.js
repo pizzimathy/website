@@ -22,17 +22,23 @@ function login() {
             .send({username: username, password: password})
             .set("Content-Type", "application/json")
             .end(function (err, res) {
-                console.log(err, res);
                 if (err)
                     badLogin.style.display = "block";
                 else
-                    window.location.pathname = "/";
+                    util.storeUser(JSON.parse(res.text));
+                    window.history.back();
+                    window.location.reload();
             });
     });
 }
 
 module.exports = function () {
     util.onLoad("login", function () {
-        login();
+        util.checkAuth(function (user) {
+            if (user)
+                window.history.back();
+            else
+                login();
+        });
     });
 }

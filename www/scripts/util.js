@@ -1,14 +1,6 @@
 
 var request = require("superagent");
 
-function checkAuth(callback) {
-    request
-        .get("/api/loggedIn")
-        .end(function (err, res) {
-            callback(res)
-        });
-}
-
 function checkPath(path) {
     return "/" + path === window.location.pathname;
 }
@@ -25,8 +17,47 @@ function onLoad(path, callback, errorCallback) {
     });
 }
 
+function storeUser(user) {
+    sessionStorage.setItem("user", user);
+}
+
+function checkAuth(callback) {
+    var user = sessionStorage.getItem("user");
+
+    if (user) {
+        callback(user);
+        createLogoutButton();
+    } else
+        callback(false);
+}
+
+function createLogoutButton() {
+    var login = document.getElementById("login");
+    login.href="javascript:;";
+    login.innerText = "Log Out";
+
+    login.addEventListener("click", function () {
+        logout(function (res) {
+            if (res) {
+                sessionStorage.removeItem("user");
+                window.location.reload();
+            } else
+                window.alert("Couldn't be logged out.");
+        });
+    });
+}
+
+function logout(callback) {
+    request
+        .get("/api/logout/")
+        .end(function (err, res) {
+            callback(res);
+        });
+}
 module.exports = {
     checkAuth: checkAuth,
     checkPath: checkPath,
-    onLoad: onLoad
+    onLoad: onLoad,
+    storeUser: storeUser,
+    createLogoutButton: createLogoutButton
 }
