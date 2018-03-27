@@ -2,15 +2,15 @@
   "name": "website",
   "version": "1.0.0",
   "description": "Personal website.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "serve": "node lib/index.js",
     "compile:sass": "sass www/styles/editor.sass www/styles/editor.css && sass www/styles/index.sass www/styles/index.css && sass www/styles/header.sass www/styles/header.css && sass www/styles/login.sass www/styles/login.css",
     "compile:js": "webpack --config webpack.config.js",
     "build:dev": "npm run compile:sass && npm run compile:js",
-    "build:prod": "npm run test && npm run build:dev && npm run clean && npm run copy",
+    "build:prod": "npm run test && npm run clean && npm run build:dev && npm run copy",
     "clean": "rm -rf dist && mkdir dist",
-    "copy": "cp -r www lib dist/ && cp package.json dist/",
+    "copy": "./copy.sh",
     "test": "npm run test_frontend && npm run test_backend",
     "test_frontend": "echo 'Frontend:' && eslint -c ./www.eslintrc www/scripts/** && echo 'Passed! Now for the backend.'",
     "test_backend": "echo 'Backend:' && eslint -c ./lib.eslintrc lib/** && echo 'Passed! We did it!'"

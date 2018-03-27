@@ -5,7 +5,7 @@ module.exports = {
     entry: "./www/scripts/index.js",
     output: {
         filename: "bundle.js",
-        path: path.resolve(__dirname, "www/dist")
+        path: path.resolve(__dirname, "dist/")
     },
     externals: {
         Quill: "quill"
