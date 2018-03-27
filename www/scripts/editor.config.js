@@ -1,20 +1,18 @@
 
 var toolbarOptions = [
-        ["bold", "italic", "underline", "strike"],        // toggled buttons
-        ["blockquote", "code-block"],
-
-        [{ "header": 1 }, { "header": 2 }],               // custom button values
-        [{ "list": "ordered"}, { "list": "bullet" }],
-
-        ["link"]
-    ];
+    ["bold", "italic", "underline", "strike"],
+    ["blockquote", "code-block"],
+    [{ "header": 1 }, { "header": 2 }],
+    [{ "list": "ordered"}, { "list": "bullet" }],
+    ["link"]
+];
 
 /**
  * @author Anthony Pizzimenti
  * @desc Configures an editor object on the editor page.
  * @returns {undefined}
  */
-function configureEditor () {
+function configureEditor() {
     // instantiate an editor
     var q = new Quill("#editor", {
         modules: {

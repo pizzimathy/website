@@ -1,15 +1,17 @@
 {
     "env": {
       "es6": true,
-      "commonjs": true,
-      "browser": true,
-      "jquery": true
+      "node": true
     },
     "globals": {
-      "gapi": true
+      "gapi": true,
+      "Quill": true,
+      "MathJax": true
     },
     "extends": "eslint:recommended",
     "rules": {
+
+        "space-before-function-paren": ["error", "never"],
   
       "indent": [
         "warn",
@@ -115,16 +117,8 @@
         }
       ],
   
-      "space-before-function-paren": [
-        "error"
-      ],
-  
       "spaced-comment": [
         "error"
-      ],
-  
-      "globals": {
-        "Quill": false
-      }
+      ]
     }
   }

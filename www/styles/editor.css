@@ -5,7 +5,7 @@
   #editor-stage #editor {
     border: 1px solid #CCCCCC;
     width: inherit;
-    height: 400px;
+    height: 300px;
     margin: 10px 0; }
   #editor-stage #buttons {
     text-align: center;
@@ -32,5 +32,11 @@
   text-align: center;
   padding: 2.5px;
   margin-bottom: 5px; }
+
+#title[type="text"] {
+  font-size: 16px; }
+
+#subtitle[type="text"] {
+  font-size: 14px; }
 
 /*# sourceMappingURL=editor.css.map */

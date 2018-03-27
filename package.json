@@ -8,9 +8,12 @@
     "compile:sass": "sass www/styles/editor.sass www/styles/editor.css && sass www/styles/index.sass www/styles/index.css && sass www/styles/header.sass www/styles/header.css && sass www/styles/login.sass www/styles/login.css",
     "compile:js": "webpack --config webpack.config.js",
     "build:dev": "npm run compile:sass && npm run compile:js",
-    "build:prod": "npm run build:dev && npm run clean && npm run copy",
+    "build:prod": "npm run test && npm run build:dev && npm run clean && npm run copy",
     "clean": "rm -rf dist && mkdir dist",
-    "copy": "cp -r www lib dist/ && cp package.json dist/"
+    "copy": "cp -r www lib dist/ && cp package.json dist/",
+    "test": "npm run test_frontend && npm run test_backend",
+    "test_frontend": "echo 'Frontend:' && eslint -c ./www.eslintrc www/scripts/** && echo 'Passed! Now for the backend.'",
+    "test_backend": "echo 'Backend:' && eslint -c ./lib.eslintrc lib/** && echo 'Passed! We did it!'"
   },
   "author": "Anthony Pizzimenti",
   "license": "ISC",
@@ -20,6 +23,7 @@
     "firebase": "^4.11.0",
     "ip": "^1.1.5",
     "morgan": "^1.9.0",
+    "npm": "^5.8.0",
     "superagent": "^3.8.2"
   },
   "devDependencies": {
