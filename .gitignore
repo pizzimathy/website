@@ -5,6 +5,7 @@ node_modules/*
 .sass-cache/
 *.css
 *.css.map
+jsdoc.json
 
 ## build ##
 dist/

@@ -1,4 +1,8 @@
 
+/**
+ * @namespace allPosts
+ */
+
 var request = require("superagent"),
     util = require("./util"),
     math = require("./math");
@@ -6,6 +10,7 @@ var request = require("superagent"),
 /**
  * @author Anthony Pizzimenti
  * @desc Retrieves all posts.
+ * @memberof allPosts
  * @param {function} callback   Called when the request for post data returns. Takes two parameters.
  * @param {boolean} loggedIn    Is there a user logged in? Passed straight to callback().
  * @returns {undefined}
@@ -21,6 +26,7 @@ function getPostData(callback, loggedIn) {
 /**
  * @author Anthony Pizzimenti
  * @desc Creates the list of post links on the /posts/ page.
+ * @memberof allPosts
  * @param {object} data Contains post data from getPostData().
  * @param {boolean} loggedIn Is this user logged in?
  * @returns {undefined}
@@ -47,6 +53,7 @@ function createPostLinks(data, loggedIn) {
 /**
  * @author Anthony Pizzimenti
  * @desc Displays an (edit) link if there's a user logged in.
+ * @memberof allPosts
  * @param {object} user A Firebase User object.
  * @returns {undefined}
  */

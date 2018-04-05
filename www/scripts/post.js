@@ -1,4 +1,7 @@
 
+/**
+ * @namespace post
+ */
 var request = require("superagent"),
     util = require("./util"),
     math = require("./math");
@@ -6,6 +9,7 @@ var request = require("superagent"),
 /**
  * @author Anthony Pizzimenti
  * @desc Gets data for a specific post.
+ * @memberof post
  * @param {function} callback Called when the request to /api/posts/<id> returns.
  * @param {boolean} loggedIn Is there a user logged in?
  * @returns {undefined}
@@ -22,6 +26,7 @@ function getPostData(callback, loggedIn) {
 /**
  * @author Anthony Pizzimenti
  * @desc Populates the page with retrieved post data.
+ * @memberof post
  * @param {object} data Post data.
  * @param {boolean} loggedIn Is there a user logged in?
  * @returns {undefined}
@@ -46,6 +51,8 @@ function displayPost(data, loggedIn) {
 /**
  * @author Anthony Pizzimenti
  * @desc Displays an (edit) link if there's a user logged in.
+ * @memberof post
+ * @see post.getPostData
  * @param {object} user A google user object.
  * @returns {undefined}
  */

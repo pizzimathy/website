@@ -1,4 +1,8 @@
 
+/**
+ * @namespace editor
+ */
+
 var request = require("superagent"),
     config = require("./editor.config"),
     util = require("./util");
@@ -6,6 +10,7 @@ var request = require("superagent"),
 /**
  * @author Anthony Pizzimenti
  * @desc Adds an image (from url) to the editor.
+ * @memberof editor
  * @returns {undefined}
  */
 function addImage() {
@@ -22,6 +27,7 @@ function addImage() {
 /**
  * @author Anthony Pizzimenti
  * @desc Cancels editing and returns the window to the list of posts.
+ * @memberof editor
  * @returns {undefined}
  */
 function cancel() {
@@ -35,6 +41,7 @@ function cancel() {
 /**
  * @author Anthony Pizzimenti
  * @desc Grabs the contents of the editor and passes them to the appropriate save method.
+ * @memberof editor
  * @param {boolean} existing Is there a post with this user id already in the database?
  * @param {number} created Time of the post's creation.
  * @returns {undefined}
@@ -56,6 +63,7 @@ function save(existing, created) {
 /**
  * @author Anthony Pizzimenti
  * @desc Saves a new post.
+ * @memberof editor
  * @param {object} Post The existing Post object.
  * @param {string} editor Contents of the editor field.
  * @param {string} title Contents of the title field.
@@ -89,6 +97,7 @@ function saveNewPost(Post, editor, title, subtitle) {
 /**
  * @author Anthony Pizzimenti
  * @desc Saves an existing post.
+ * @memberof editor
  * @param {string} id The post's database unique id.
  * @param {object} Post A Post object.
  * @param {string} editor Contents of the editor field
@@ -119,6 +128,7 @@ function saveExistingPost(id, Post, editor, title, subtitle, created) {
 /**
  * @author Anthony Pizzimenti
  * @desc Retrieves a specific post.
+ * @memberof editor
  * @param {function} callback Called when the request to /api/posts completes.
  * @param {string} id Requested post's unique id.
  * @returns {undefined}
@@ -135,6 +145,7 @@ function retrievePost(callback, id) {
 /**
  * @author Anthony Pizzimenti
  * @desc Populates the editor with existing post data.
+ * @memberof editor
  * @param {object} data Post data.
  * @returns {undefined}
  */
@@ -152,12 +163,13 @@ function populate(data) {
 /**
  * @author Anthony Pizzimenti
  * @desc Checks if there's a user logged in. If not, redirect them to the login page.
+ * @memberof editor
+ * @see editor.addImage
+ * @see editor.cancel
+ * @see editor.configureEditor
  * @param {object} res Response from authentication server.
  * @param {boolean} existing Is this an existing post?
  * @returns {undefined}
- * @see #addImage
- * @see #cancel
- * @see #config
  */
 function redirectIfNotAuth(res, existing) {
     if (res == false) window.location.pathname = "/login";

@@ -1,4 +1,8 @@
 
+/**
+ * @namespace index
+ */
+
 var login = require("./login"),
     editor = require("./editor"),
     math = require("./math"),
@@ -15,6 +19,7 @@ post();
 /**
  * @author Anthony Pizzimenti
  * @desc Avoids checking authentication while still loading everything.
+ * @namespace index
  * @param {*} u Dummy variable.
  * @returns {undefined}
  */

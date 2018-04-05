@@ -1,34 +1,37 @@
 {
-  "name": "website",
-  "version": "1.0.0",
-  "description": "Personal website.",
-  "main": "dist/index.js",
-  "scripts": {
-    "serve": "node dist/lib/index.js",
-    "compile:sass": "sass www/styles/editor.sass www/styles/editor.css && sass www/styles/index.sass www/styles/index.css && sass www/styles/header.sass www/styles/header.css && sass www/styles/login.sass www/styles/login.css",
-    "compile:js": "webpack --config webpack.config.js",
-    "build:dev": "npm run copy && npm run compile:sass && npm run compile:js",
-    "build:prod": "npm run test && npm run clean && npm run build:dev && npm run copy",
-    "clean": "rm -rf dist && mkdir dist",
-    "copy": "./copy.sh",
-    "test": "npm run test_frontend && npm run test_backend",
-    "test_frontend": "echo 'Frontend:' && eslint -c ./www/.eslintrc www/scripts/** && echo 'Passed! Now for the backend.'",
-    "test_backend": "echo 'Backend:' && eslint -c ./lib/.eslintrc lib/** && echo 'Passed! We did it!'"
-  },
-  "author": "Anthony Pizzimenti",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "firebase": "^4.11.0",
-    "ip": "^1.1.5",
-    "morgan": "^1.9.0",
-    "npm": "^5.8.0",
-    "superagent": "^3.8.2"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.12"
-  }
+    "name": "website",
+    "version": "2.0.1",
+    "description": "Personal website.",
+    "main": "dist/index.js",
+    "scripts": {
+        "docs": "jsdoc -c ~/desktop/site/jsdoc.json",
+        "serve": "node dist/lib/index.js",
+        "compile:sass": "./util.sh sass",
+        "compile:js:dev": "webpack --mode development --config webpack.config.js",
+        "compile:js:prod": "webpack --mode production --config webpack.config.js",
+        "build:dev": "npm run compile:sass && npm run compile:js:dev && npm run copy",
+        "build:prod": "npm run test && npm run clean && npm run compile:sass && npm run compile:js:prod && npm run copy",
+        "clean": "rm -rf dist && mkdir dist",
+        "copy": "./util.sh copy",
+        "test": "npm run test_frontend && npm run test_backend",
+        "test_frontend": "echo 'Frontend:' && eslint -c ./www/.eslintrc www/scripts/** && echo 'Passed! Now for the backend.'",
+        "test_backend": "echo 'Backend:' && eslint -c ./lib/.eslintrc lib/** && echo 'Passed! We did it!'"
+    },
+    "author": "Anthony Pizzimenti",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.2",
+        "firebase": "^4.11.0",
+        "ip": "^1.1.5",
+        "morgan": "^1.9.0",
+        "npm": "^5.8.0",
+        "superagent": "^3.8.2"
+    },
+    "devDependencies": {
+        "jsdoc": "^3.5.5",
+        "minami": "^1.2.3",
+        "webpack": "^4.1.1",
+        "webpack-cli": "^2.0.12"
+    }
 }

@@ -9,6 +9,7 @@ var toolbarOptions = [
 
 /**
  * @author Anthony Pizzimenti
+ * @memberof editor
  * @desc Configures an editor object on the editor page.
  * @returns {undefined}
  */

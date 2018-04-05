@@ -1,9 +1,15 @@
+
+/**
+ * @namespace login
+ */
+
 var request = require("superagent"),
     util = require("./util");
 
 /**
  * @author Anthony Pizzimenti
  * @desc Logs in a given user.
+ * @memberof login
  * @returns {undefined}
  */
 function login() {
