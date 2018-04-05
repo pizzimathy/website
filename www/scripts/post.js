@@ -35,7 +35,11 @@ function displayPost(data, loggedIn) {
     var content = document.getElementById("content"),
         title = document.getElementById("title"),
         subtitle = document.getElementById("subtitle"),
-        created = document.getElementById("created");
+        created = document.getElementById("created"),
+        updated = document.getElementById("updated"),
+        opts = { year: "numeric", month: "long", day: "numeric" },
+        then = new Date(data.created).toLocaleDateString("en-EN", opts),
+        now = data.updated ? new Date(data.updated).toLocaleDateString("en-EN", opts) : null;
 
     // set title
     document.title = data.title;
@@ -44,7 +48,11 @@ function displayPost(data, loggedIn) {
     content.innerHTML = data.body;
     title.innerText = data.title;
     subtitle.innerText = data.subtitle;
-    created.innerText = new Date(data.created).toLocaleDateString("en-EN", { year: "numeric", month: "long", day: "numeric" });
+    created.innerText = then;
+
+    // check if the post has been updated
+    if (now && then !== now) updated.innerText = " (last updated " + now + ")";
+
     math();
 }
 

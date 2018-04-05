@@ -111,6 +111,7 @@ function saveExistingPost(id, Post, editor, title, subtitle, created) {
     Post.subtitle = subtitle.value;
     Post.body = editor.innerHTML;
     Post.created = created;
+    Post.updated = Date.now();
 
     request
         .post("/api/posts/save/" + id)
