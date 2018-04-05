@@ -35,15 +35,25 @@ function createPostLinks(data, loggedIn) {
     var stage = document.getElementById("stage"),
         titles = data.titles.reverse(),
         keys = data.keys.reverse(),
+        subtitles = data.subtitles.reverse(),
+        created = data.times.reverse(),
+        opts = { year: "numeric", month: "long", day: "numeric" },
         i, preview;
 
     for (i = 0; i < titles.length; i++) {
         preview = document.createElement("div");
         preview.className = "preview";
-        preview.innerHTML = "<a style=\"font-weight: bold\" target=\"blank\" href=\"/posts/" + keys[i] + "\">" + titles[i] + "</a>";
+        preview.style.clear = "both";
+
+        if (subtitles[i] !== "")
+            preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}: ${subtitles[i]}</a>`;
+        else
+        preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}</a>`;
 
         if (loggedIn)
-            preview.innerHTML += " <a style=\"font-size:12px\" href=\"/editor/" + keys[i] + "\">(edit)</a>";
+            preview.innerHTML += ` <a style="font-size:12px; float: left;" href="editor/${keys[i]}">(edit)</a>`;
+
+        preview.innerHTML += `<p style="float: right; margin: 0">${new Date(created[i]).toLocaleDateString("en-EN", opts)}</p>`;
 
         stage.appendChild(preview);
         math();
