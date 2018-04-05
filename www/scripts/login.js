@@ -21,8 +21,7 @@ function login() {
             .send({username: username, password: password})
             .set("Content-Type", "application/json")
             .end(function(err, res) {
-                if (err)
-                    badLogin.style.display = "block";
+                if (err) badLogin.style.display = "block";
                 else {
                     util.storeUser(JSON.parse(res.text));
                     window.location.pathname = "/";
@@ -36,10 +35,8 @@ module.exports = function() {
     util.onLoad("login", function() {
         // on page load, check if the user is authorized
         util.checkAuth(function(user) {
-            if (user)
-                window.history.back();
-            else
-                login();
+            if (user) window.history.back();
+            else login();
         });
     });
 };

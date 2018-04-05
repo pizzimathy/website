@@ -21,13 +21,9 @@ function checkPath(path) {
  */
 function onLoad(path, callback, errorCallback) {
     document.addEventListener("DOMContentLoaded", function(e) {
-        if (path == "isPost" || path == "isEditor") {
-            callback();
-        } else if (checkPath(path)) {
-            callback();
-        } else if (errorCallback) {
-            errorCallback();
-        }
+        if (path == "isPost" || path == "isEditor") callback();
+        else if (checkPath(path)) callback();
+        else if (errorCallback) errorCallback();
     });
 }
 
@@ -53,8 +49,7 @@ function checkAuth(callback) {
     if (user) {
         callback(user);
         createLogoutButton();
-    } else
-        callback(false);
+    } else callback(false);
 }
 
 /**
@@ -72,8 +67,7 @@ function createLogoutButton() {
             if (res) {
                 sessionStorage.removeItem("user");
                 window.location.reload();
-            } else
-                window.alert("Couldn't be logged out.");
+            } else window.alert("Couldn't be logged out.");
         });
     });
 }

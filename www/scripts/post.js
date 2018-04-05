@@ -50,10 +50,8 @@ function displayPost(data, loggedIn) {
  * @returns {undefined}
  */
 function displayEditIfAuth(user) {
-    if (!user)
-        getPostData(displayPost, false);
-    else
-        getPostData(displayPost, true);
+    if (!user) getPostData(displayPost, false);
+    else getPostData(displayPost, true);
 }
 
 module.exports = function() {

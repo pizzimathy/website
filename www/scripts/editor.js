@@ -48,10 +48,8 @@ function save(existing, created) {
             subtitle = document.querySelector("#subtitle"),
             Post = {};
 
-        if (existing)
-            saveExistingPost(window.location.pathname.split("/")[2], Post, editor, title, subtitle, created);
-        else
-            saveNewPost(Post, editor, title, subtitle);
+        if (existing) saveExistingPost(window.location.pathname.split("/")[2], Post, editor, title, subtitle, created);
+        else saveNewPost(Post, editor, title, subtitle);
     });
 }
 
@@ -80,8 +78,7 @@ function saveNewPost(Post, editor, title, subtitle) {
         .send(Post)
         .set("Content-Type", "application/json")
         .end(function(err, res) {
-            if (err)
-                window.alert("Couldn't be saved.");
+            if (err) window.alert("Couldn't be saved.");
             else if (res) {
                 window.alert("Saved.");
                 window.location.pathname = "/posts";
@@ -111,8 +108,7 @@ function saveExistingPost(id, Post, editor, title, subtitle, created) {
         .send(Post)
         .set("Content-Type", "application/json")
         .end(function(err, res) {
-            if (err)
-                window.alert("Couldn't be saved.");
+            if (err) window.alert("Changes couldn't be saved. Here's why:\n" + err);
             else if (res) {
                 window.alert("Saved.");
                 window.location.pathname = "/posts";
@@ -164,14 +160,10 @@ function populate(data) {
  * @see #config
  */
 function redirectIfNotAuth(res, existing) {
-    if (res == false)
-        window.location.pathname = "/login";
+    if (res == false) window.location.pathname = "/login";
 
-    if (existing) {
-        retrievePost(populate, window.location.pathname.split("/")[2]);
-    } else {
-        save(false);
-    }
+    if (existing) retrievePost(populate, window.location.pathname.split("/")[2]);
+    else save(false);
 
     addImage();
     cancel();
