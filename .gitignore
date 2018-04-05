@@ -3,7 +3,7 @@ node_modules/*
 
 ## annoying files ##
 .sass-cache/
-*.sass
+*.css
 *.css.map
 
 ## build ##
