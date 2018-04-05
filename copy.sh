@@ -4,4 +4,4 @@ dest="./dist/"
 exclude="./exclude.txt"
 rsync -avz --exclude-from $exclude $src $dest
 cp package.json $dest
-cp -r lib $dest
+rsync -avz --exclude-from $exclude "./lib" $dest

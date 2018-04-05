@@ -65,6 +65,9 @@
         margin-top: 0; }
       #stage table tr th :last-child, #stage table tr td :last-child {
         margin-bottom: 0; }
+  #stage #content p {
+    margin-top: 0;
+    margin-bottom: 0; }
 
 button {
   font-size: 14px;
