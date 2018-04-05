@@ -44,7 +44,7 @@ function displayPost(data, loggedIn) {
     content.innerHTML = data.body;
     title.innerText = data.title;
     subtitle.innerText = data.subtitle;
-    created.innerText = new Date(data.created).toLocaleDateString();
+    created.innerText = new Date(data.created).toLocaleDateString("en-EN", { year: "numeric", month: "long", day: "numeric" });
     math();
 }
 
