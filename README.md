@@ -223,7 +223,7 @@ util.onLoad("resources", function() {
 
 ```
 
-[Always, always check the docs](http://apizzimenti.github.io/site-docs) to make sure that everything is squared away.
+[Always, always check the docs](http://apizzimenti.github.io/website-docs) to make sure that everything is squared away.
 
 ## hosting
 I use Amazon's AWS for hosting. I have an EC2 instance running server code which links out to firebase anytime it needs data. All traffic is routed through there.
