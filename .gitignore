@@ -1,5 +1,13 @@
+## gigantic resource directory ##
 node_modules/*
+
+## annoying files ##
 .sass-cache/
 *.sass
 *.css.map
+
+## build ##
 dist/
+
+## security ##
+lib/util/init.js
