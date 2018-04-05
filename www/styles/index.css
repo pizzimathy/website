@@ -21,7 +21,7 @@
   #stage pre {
     border-radius: 5px;
     padding: 5px;
-    overflow: scroll;
+    overflow: auto;
     color: #960C0C;
     font-size: 14px;
     background-color: #CCCCCC;
