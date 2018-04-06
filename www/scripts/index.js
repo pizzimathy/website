@@ -8,27 +8,16 @@ var login = require("./login"),
     math = require("./math"),
     posts = require("./allPosts"),
     post = require("./post"),
-    util = require("./util");
+    util = require("./util"),
+    home = require("./home");
 
 login();
 editor();
 math();
 posts();
 post();
-
-/**
- * @author Anthony Pizzimenti
- * @desc Avoids checking authentication while still loading everything.
- * @namespace index
- * @param {*} u Dummy variable.
- * @returns {undefined}
- */
-function u(u) { +u; }
-
-util.onLoad("", function() {
-    util.checkAuth(u);
-});
+home();
 
 util.onLoad("contact", function() {
-    util.checkAuth(u);
+    util.checkAuth(util.u);
 });

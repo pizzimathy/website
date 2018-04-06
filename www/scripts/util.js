@@ -17,6 +17,15 @@ function checkPath(path) {
 
 /**
  * @author Anthony Pizzimenti
+ * @desc Avoids checking authentication while still loading everything.
+ * @memberof util
+ * @param {*} u Dummy variable.
+ * @returns {undefined}
+ */
+function u(u) { +u; }
+
+/**
+ * @author Anthony Pizzimenti
  * @desc When the page at /<path> loads, call the callback.
  * @memberof util
  * @param {string} path Desired path.
