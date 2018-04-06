@@ -48,7 +48,7 @@ function createPostLinks(data, loggedIn) {
         if (subtitles[i] !== "")
             preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}: ${subtitles[i]}</a>`;
         else
-        preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}</a>`;
+            preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}</a>`;
 
         if (loggedIn)
             preview.innerHTML += ` <a style="font-size:12px; float: left;" href="editor/${keys[i]}">(edit)</a>`;

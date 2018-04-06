@@ -109,5 +109,6 @@ module.exports = {
     checkPath: checkPath,
     onLoad: onLoad,
     storeUser: storeUser,
-    createLogoutButton: createLogoutButton
+    createLogoutButton: createLogoutButton,
+    u: u
 };
