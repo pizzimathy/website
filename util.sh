@@ -17,6 +17,11 @@ compile () {
     done
 }
 
+https () {
+    mkdir ./dist/lib/.ssl/
+    mkdir ./dist/lib/certs/
+}
+
 if [ "$1" == "copy" ]
 then
     echo "Copying."
