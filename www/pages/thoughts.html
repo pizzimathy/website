@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Some Thoughts</title>
 
-    <link rel="stylesheet" href="../header.css"/>
-    <link rel="stylesheet" href="../index.css"/>
+    <link rel="stylesheet" href="header.css"/>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="thoughts.css"/>
 
-    <link rel="icon" href="../8bit-pc.gif" type="image/gif"/>
+    <link rel="icon" href="8bit-pc.gif" type="image/gif"/>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="../bundle.js"></script>
+    <script src="bundle.js"></script>
 </head>
 <body>
     <div id="header">
@@ -26,10 +27,16 @@
         </ul>
     </div>
     <div id="stage">
-        <div><h1 id="title"></h1><h2 id="subtitle"></h2></div>
-        <div><h4 id="created"></h4><h4 id="updated"></h4></div>
-
-        <div id="content"></div>
+        <div class="level-container">
+            <div class="level-left">
+                <p class="thought">Some content</p>
+                <p class="date">date here</p>
+            </div>
+            <div class="level-right">
+                <p class="thought">Some content</p>
+                <p class="date">date here</p>
+            </div>
+        </div>
     </div>
     <div class="spacer"></div>
 </body>
