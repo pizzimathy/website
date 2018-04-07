@@ -21,5 +21,8 @@ function doNotTrack() {
 }
 
 module.exports = function() {
-    util.onLoad("", doNotTrack);
+    util.onLoad("", function() {
+        util.checkAuth(util.u);
+        doNotTrack();
+    });
 };
