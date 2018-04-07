@@ -9,8 +9,10 @@ var login = require("./login"),
     posts = require("./allPosts"),
     post = require("./post"),
     util = require("./util"),
-    home = require("./home");
+    home = require("./home"),
+    thoughts = require("./thoughts");
 
+thoughts();
 login();
 editor();
 math();

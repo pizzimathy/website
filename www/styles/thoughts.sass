@@ -1,0 +1,34 @@
+.level-container
+    width: 600px
+    overflow: auto
+    margin-top: 20px
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .level-left, .level-right
+        border: 1px solid black
+        border-radius: 5px
+        width: 258px
+        padding: 0 10px
+
+        .thought
+            font-size: 16px
+            font-weight: bold
+            word-wrap: break-word
+
+        button
+            border: none
+            margin: 0 !important
+            padding-left: 0
+            color: red
+            font-weight: bold
+
+    .level-left
+        float: left
+        margin-right: 10px
+    
+    .level-right
+        float: right
+        margin-left: 10px
