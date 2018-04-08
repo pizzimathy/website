@@ -79,16 +79,16 @@ function createThought(Thought, right, loggedIn) {
         thoughtBody = document.createElement("p"),
         thoughtDate = document.createElement("p"),
         opts = {
-            hour: "numeric",
-            minute: "numeric",
-            year: "numeric", month: "long",
+            hour: "2-digit",
+            minute: "2-digit",
+            month: "long",
             day: "numeric"
         };
 
     // create new elements, assign css classes, append stuff
     thoughtBody.innerText = Thought.body;
     thoughtBody.className = "thought";
-    thoughtDate.innerText = new Date(Thought.created).toLocaleDateString(opts);
+    thoughtDate.innerText = new Date(Thought.created).toLocaleDateString("en-EN", opts);
 
     // if there's a user logged in, give them a delete button!
     if (loggedIn) addDelete(thoughtDate, Thought.id);
