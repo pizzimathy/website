@@ -38,7 +38,7 @@ function displayThoughts(thoughts, loggedIn) {
 
     for (chunk of chunks) {
         level = createLevel(chunk, loggedIn);
-        stage.appendChild(level);  
+        stage.appendChild(level);
     }
 }
 
@@ -139,4 +139,4 @@ module.exports = function() {
         util.checkAuth(thoughts);
         window.deleteThought = deleteThought;
     });
-}
+};

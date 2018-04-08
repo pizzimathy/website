@@ -178,9 +178,38 @@ function redirectIfNotAuth(res, existing) {
     if (existing) retrievePost(populate, window.location.pathname.split("/")[2]);
     else save(false);
 
+    saveThought();
     addImage();
     cancel();
     config();
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Saves a thought.
+ * @member editor
+ * @returns {undefined}
+ */
+function saveThought() {
+    var body = document.getElementById("thought-editor"),
+        save = document.getElementById("thought-save"),
+        Thought = {};
+
+    save.addEventListener("click", function() {
+        Thought = { body: body.value, created: Date.now() };
+
+        request
+            .post("/api/thoughts")
+            .send(Thought)
+            .set("Content-Type", "application/json")
+            .end(function(err, res) {
+                if (err) window.alert("Thought couldn't be saved.");
+                else if (res) {
+                    window.alert("Saved.");
+                    body.value = "";
+                }
+            });
+    });
 }
 
 module.exports = function() {
