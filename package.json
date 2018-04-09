@@ -4,7 +4,7 @@
     "description": "Personal website.",
     "main": "dist/index.js",
     "scripts": {
-        "docs": "jsdoc -c ~/desktop/site/jsdoc.json",
+        "docs": "jsdoc -c ~/desktop/website/jsdoc.json",
         "serve": "node dist/lib/index.js",
         "serve:prod": "node dist/lib/index.js --prod",
         "compile:sass": "./util.sh sass",
