@@ -16,11 +16,13 @@ var request = require("superagent"),
 function addImage() {
     document.getElementById("addImage-button").addEventListener("click", function() {
         var editor = document.getElementsByClassName("ql-editor")[0],
-            url = window.prompt("Enter the image's URL:", "http://example.com/image.png"),
+            url = window.prompt("Enter the image's URL:"),
             img = new Image();
 
-        img.src = url;
-        editor.appendChild(img);
+        if (url) {
+            img.src = url;
+            editor.appendChild(img);
+        }
     });
 }
 
