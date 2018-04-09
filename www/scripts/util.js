@@ -62,9 +62,11 @@ function storeUser(user) {
 function checkAuth(callback) {
     var user = sessionStorage.getItem("user");
 
+    editorButton(user);
+    
     if (user) {
-        callback(user);
         createLogoutButton();
+        callback(user);
     } else callback(false);
 }
 
@@ -87,6 +89,19 @@ function createLogoutButton() {
             } else window.alert("Couldn't be logged out.");
         });
     });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Displays the Editor button when a user is logged in.
+ * @memberof util
+ * @param {object|boolean} loggedIn An object if there's a user logged in, false if there isn't.
+ * @returns {undefined}
+ */
+function editorButton(loggedIn) {
+    var editor = document.getElementById("editor-link");
+    if (loggedIn) editor.style.display = "inline-block";
+    else editor.style.display = "none";
 }
 
 /**

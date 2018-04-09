@@ -87,7 +87,7 @@ Firstly, create a new file called `resources.html` in the `www/pages` directory.
             <li class="listitem"><a href="/">Home</a></li>
             <li class="listitem"><a href="/contact">Contact</a></li>
             <li class="listitem"><a href="/posts">Posts</a></li>
-            <li class="listitem"><a href="/editor">Editor</a></li>
+            <li class="listitem" id="editor-link"><a href="/editor">Editor</a></li>
             <li class="listitem"><a id="login" href="/login">Log In</a></li>
         </ul>
     </div>
