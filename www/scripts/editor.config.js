@@ -14,13 +14,13 @@ function configureEditor() {
             [{ "header": 1 }, { "header": 2 }],
             [{ "list": "ordered"}, { "list": "bullet" }],
             ["link"]
-        ];
+        ],
         q = new Quill("#editor", {
-        modules: {
-            toolbar: toolbarOptions
-        },
-        theme: "snow"
-    });
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: "snow"
+        });
 }
 
 module.exports = configureEditor;
