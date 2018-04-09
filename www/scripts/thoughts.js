@@ -27,6 +27,7 @@ function thoughts(loggedIn) {
  * @author Anthony Pizzimenti
  * @desc Appends thought levels to the stage.
  * @memberof thoughts
+ * @see thoughts.thoughts
  * @param {object[]} thoughts Array of Thoughts sorted by creation date.
  * @param {object|boolean} loggedIn Is there a user logged in?
  * @returns {undefined}
@@ -69,6 +70,7 @@ function createLevel(chunk, loggedIn) {
  * @author Anthony Pizzimenti
  * @desc Creates a thought container to be appended to a level.
  * @memberof thoughts
+ * @see thoughts.createLevel
  * @param {lib.Thought} Thought A Thought object from the db.
  * @param {number} right Is this the right thought?
  * @param {object|boolean} loggedIn Is there a user logged in?

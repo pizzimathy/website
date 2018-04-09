@@ -8,6 +8,7 @@ var util = require("./util");
 /**
  * @author Anthony Pizzimenti
  * @desc Attempts to protect my page from analytics tracking.
+ * @memberof home
  * @returns {undefined}
  */
 function doNotTrack() {

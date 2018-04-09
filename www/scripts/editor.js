@@ -187,7 +187,7 @@ function redirectIfNotAuth(res, existing) {
 /**
  * @author Anthony Pizzimenti
  * @desc Saves a thought.
- * @member editor
+ * @memberof editor
  * @returns {undefined}
  */
 function saveThought() {

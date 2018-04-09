@@ -1,8 +1,4 @@
 
-/**
- * @namespace index
- */
-
 var login = require("./login"),
     editor = require("./editor"),
     math = require("./math"),

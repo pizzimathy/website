@@ -10,7 +10,7 @@ var request = require("superagent"),
  * @author Anthony Pizzimenti
  * @desc Gets data for a specific post.
  * @memberof post
- * @param {function} callback Called when the request to /api/posts/<id> returns.
+ * @param {function} callback Called when the request to <code>/api/posts/<id></code> returns.
  * @param {boolean} loggedIn Is there a user logged in?
  * @returns {undefined}
  */

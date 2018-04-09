@@ -12,7 +12,7 @@ var request = require("superagent"),
  * @desc Retrieves all posts.
  * @memberof allPosts
  * @param {function} callback   Called when the request for post data returns. Takes two parameters.
- * @param {boolean} loggedIn    Is there a user logged in? Passed straight to callback().
+ * @param {boolean} loggedIn    Is there a user logged in? Passed straight to <code>callback()</code>.
  * @returns {undefined}
  */
 function getPostData(callback, loggedIn) {
@@ -27,7 +27,8 @@ function getPostData(callback, loggedIn) {
  * @author Anthony Pizzimenti
  * @desc Creates the list of post links on the /posts/ page.
  * @memberof allPosts
- * @param {object} data Contains post data from getPostData().
+ * @see allPosts.getPostData
+ * @param {object} data Contains post data from <code>getPostData()</code>.
  * @param {boolean} loggedIn Is this user logged in?
  * @returns {undefined}
  */
