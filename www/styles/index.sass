@@ -9,7 +9,8 @@ $font-stack: "Libre Franklin", "Helvetica", "sans-serif"
     font-family: $font-stack
     text-align: left
     font-size: 14px
-    border-top: 1px dashed black
+    border-top: 1px solid white
+    color: white
 
     h1, h2, h3, h4
         text-align: left
@@ -100,19 +101,22 @@ $font-stack: "Libre Franklin", "Helvetica", "sans-serif"
             margin-top: 0
             margin-bottom: 0
 
-button
-    &::placeholder
-        font-family: $font-stack
-        
-    font-size: 14px
-    border-radius: 2px
-    padding: 5px
-    border: 1px solid black
-    margin: 5px
-    background-color: white
+body
+    background-color: #232323
 
-    &:hover
-        cursor: pointer
+    button
+        &::placeholder
+            font-family: $font-stack
 
-.spacer
-    height: 50px
+        &:hover
+            cursor: pointer
+            
+        font-size: 14px
+        border-radius: 2px
+        padding: 5px
+        border: 1px solid black
+        margin: 5px
+        background-color: white
+
+    .spacer
+        height: 50px
