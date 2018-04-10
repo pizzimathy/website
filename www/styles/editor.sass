@@ -4,16 +4,18 @@ $font-stack: "Libre Franklin", "Helvetica", "sans-serif"
 #editor-stage
     width: 600px
     margin: 0 auto
-    padding: 5px
 
     #editor
-        border: 1px solid #cccccc
         width: inherit
         height: 300px
         margin: 10px 0
+        padding: 10px 5px
 
     .ql-container
         font-family: $font-stack
+
+        .ql-editor
+            padding: 15px
 
     .save-or-publish
         text-align: center
@@ -30,13 +32,16 @@ $font-stack: "Libre Franklin", "Helvetica", "sans-serif"
 .input-fields
     text-align: center
     padding: 2.5px
-    margin-bottom: 5px
+    margin: 0 0 5px 0
 
-#title[type="text"]
-    font-size: 16px
+    input
+        margin: 0 !important
 
-#subtitle[type="text"]
-    font-size: 14px
+    #title[type="text"]
+        font-size: 16px
+
+    #subtitle[type="text"]
+        font-size: 14px
 
 .buttons
     text-align: center

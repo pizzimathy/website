@@ -178,12 +178,14 @@ function redirectIfNotAuth(res, existing) {
     if (res == false) window.location.pathname = "/login";
 
     if (existing) retrievePost(populate, window.location.pathname.split("/")[2]);
-    else save(false);
+    else {
+        save(false);
+        saveThought();
+    }
 
-    saveThought();
+    config();
     addImage();
     cancel();
-    config();
 }
 
 /**
