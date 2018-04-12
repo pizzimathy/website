@@ -55,9 +55,10 @@ function save(existing, created) {
         var editor = document.getElementsByClassName("ql-editor")[0],
             title = document.querySelector("#title"),
             subtitle = document.querySelector("#subtitle"),
+            published = document.getElementById("published"),
             Post = {};
 
-        if (existing) saveExistingPost(window.location.pathname.split("/")[2], Post, editor, title, subtitle, created);
+        if (existing) saveExistingPost(window.location.pathname.split("/")[2], Post, editor, title, subtitle, created, published);
         else saveNewPost(Post, editor, title, subtitle);
     });
 }
@@ -72,7 +73,7 @@ function save(existing, created) {
  * @param {string} subtitle Contents of the subtitle field.
  * @returns {undefined}
  */
-function saveNewPost(Post, editor, title, subtitle) {
+function saveNewPost(Post, editor, title, subtitle, published) {
     if (!title.value) {
         window.alert("Post wasn't saved - you need a title!");
         return;
@@ -82,6 +83,7 @@ function saveNewPost(Post, editor, title, subtitle) {
     Post.subtitle = subtitle.value ? subtitle.value : "";
     Post.body = editor.innerHTML;
     Post.created = Date.now();
+    Post.published = published.checked;
 
     request
         .post("/api/posts/save")
@@ -108,13 +110,14 @@ function saveNewPost(Post, editor, title, subtitle) {
  * @param {number} created UNIX timestring of when the post was created.
  * @returns {undefined}
  */
-function saveExistingPost(id, Post, editor, title, subtitle, created) {
+function saveExistingPost(id, Post, editor, title, subtitle, created, published) {
     Post.title = title.value;
     Post.subtitle = subtitle.value;
     Post.body = editor.innerHTML;
     Post.created = created;
     Post.updated = Date.now();
-
+    Post.published = published.checked;
+    
     request
         .post("/api/posts/save/" + id)
         .send(Post)
@@ -155,12 +158,14 @@ function retrievePost(callback, id) {
 function populate(data) {
     var editor = document.getElementsByClassName("ql-editor")[0],
         title = document.getElementById("title"),
-        subtitle = document.getElementById("subtitle");
+        subtitle = document.getElementById("subtitle"),
+        published = document.getElementById("published");
 
     document.title = data.title + " (editing)";
     editor.innerHTML = data.body;
     title.value = data.title;
     subtitle.value = data.subtitle;
+    published.checked = data.published;
 }
 
 /**
