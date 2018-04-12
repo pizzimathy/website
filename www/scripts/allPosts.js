@@ -38,6 +38,7 @@ function createPostLinks(data, loggedIn) {
         keys = data.keys.reverse(),
         subtitles = data.subtitles.reverse(),
         created = data.times.reverse(),
+        published = data.published.reverse(),
         opts = { year: "numeric", month: "long", day: "numeric" },
         i, preview;
 
@@ -46,16 +47,20 @@ function createPostLinks(data, loggedIn) {
         preview.className = "preview";
         preview.style.clear = "both";
 
-        if (subtitles[i] !== "")
-            preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}: ${subtitles[i]}</a>`;
-        else
-            preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}</a>`;
+        // if there's a subtitle, attach it; otherwise, don't
+        if (subtitles[i] !== "") preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}: ${subtitles[i]}</a>`;
+        else preview.innerHTML = `<a style="font-weight: bold; float: left;" target="blank" href="posts/${keys[i]}">${titles[i]}</a>`;
 
-        if (loggedIn)
-            preview.innerHTML += ` <a style="font-size:12px; float: left;" href="editor/${keys[i]}">(edit)</a>`;
+        // if there's a user logged in, display an "edit" link
+        if (loggedIn) preview.innerHTML += ` <a style="font-size:12px; float: left;" href="editor/${keys[i]}">(edit)</a>`;
 
+        // attach the date
         preview.innerHTML += `<p style="float: right; margin: 0">${new Date(created[i]).toLocaleDateString("en-EN", opts)}</p>`;
 
+        // if there isn't a user logged in and the post isn't "published", don't display it
+        if (!loggedIn && !published[i]) continue;
+        
+        // attach the preview
         stage.appendChild(preview);
         math();
     }
