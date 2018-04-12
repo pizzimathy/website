@@ -71,6 +71,7 @@ function save(existing, created) {
  * @param {string} editor Contents of the editor field.
  * @param {string} title Contents of the title field.
  * @param {string} subtitle Contents of the subtitle field.
+ * @param {boolean} published Is this published to the default post listing?
  * @returns {undefined}
  */
 function saveNewPost(Post, editor, title, subtitle, published) {
@@ -108,6 +109,7 @@ function saveNewPost(Post, editor, title, subtitle, published) {
  * @param {string} title Contents of the title field.
  * @param {string} subtitle Contents of the subtitle field (if any).
  * @param {number} created UNIX timestring of when the post was created.
+ * @param {boolean} published Is this published to the default post listing?
  * @returns {undefined}
  */
 function saveExistingPost(id, Post, editor, title, subtitle, created, published) {
@@ -117,7 +119,7 @@ function saveExistingPost(id, Post, editor, title, subtitle, created, published)
     Post.created = created;
     Post.updated = Date.now();
     Post.published = published.checked;
-    
+
     request
         .post("/api/posts/save/" + id)
         .send(Post)
