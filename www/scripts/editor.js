@@ -92,10 +92,7 @@ function saveNewPost(Post, editor, title, subtitle, published) {
         .set("Content-Type", "application/json")
         .end(function(err, res) {
             if (err) window.alert("Couldn't be saved.");
-            else if (res) {
-                window.alert("Saved.");
-                window.location.pathname = "/posts";
-            }
+            else if (res) window.alert("Saved.");
         });
 }
 
@@ -126,10 +123,7 @@ function saveExistingPost(id, Post, editor, title, subtitle, created, published)
         .set("Content-Type", "application/json")
         .end(function(err, res) {
             if (err) window.alert("Changes couldn't be saved. Here's why:\n" + err);
-            else if (res) {
-                window.alert("Saved.");
-                window.location.pathname = "/posts";
-            }
+            else if (res) window.alert("Saved.");
         });
 }
 
