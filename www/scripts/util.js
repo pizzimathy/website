@@ -36,7 +36,7 @@ function u(u) { +u; }
 function onLoad(path, callback, errorCallback) {
     document.addEventListener("DOMContentLoaded", function(e) {
         if (path == "isPost" || path == "isEditor") callback();
-        else if (checkPath(path)) callback();
+        else if (checkPath(path)) checkAuth(callback);
         else if (errorCallback) errorCallback();
     });
 }
@@ -62,12 +62,15 @@ function storeUser(user) {
 function checkAuth(callback) {
     var user = sessionStorage.getItem("user");
 
-    editorButton(user);
+    cosmetics(user);
     
-    if (user) {
-        createLogoutButton();
-        callback(user);
-    } else callback(false);
+    if (user && callback) callback(user);
+    else if (callback) callback(false);
+}
+
+function cosmetics(user) {
+    editorButton(user);
+    if (user) createLogoutButton();
 }
 
 /**
