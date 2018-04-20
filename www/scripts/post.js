@@ -71,8 +71,6 @@ function displayEditIfAuth(user) {
 
 module.exports = function() {
     if (window.location.pathname.split("/").length >= 3 && window.location.pathname.split("/")[1] == "posts") {
-        util.onLoad("isPost", function() {
-            util.checkAuth(displayEditIfAuth);
-        });
+        util.onLoad("isPost", displayEditIfAuth);
     }
 };

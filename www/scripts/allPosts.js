@@ -81,7 +81,5 @@ function displayEditIfAuth(user) {
 }
 
 module.exports = function() {
-    util.onLoad("posts", function() {
-        util.checkAuth(displayEditIfAuth);
-    });
+    util.onLoad("posts", displayEditIfAuth);
 };

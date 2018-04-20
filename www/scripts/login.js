@@ -38,11 +38,9 @@ function login() {
 }
 
 module.exports = function() {
-    util.onLoad("login", function() {
-        // on page load, check if the user is authorized
-        util.checkAuth(function(user) {
-            if (user) window.history.back();
-            else login();
-        });
+    util.onLoad("login", function(user) {
+        // when the page loads, check if someone is logged in.
+        if (user) window.history.back();
+        else login();
     });
 };

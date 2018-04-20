@@ -15,6 +15,9 @@ var funk = require("da_funk"),
  * @returns {undefined}
  */
 function thoughts(loggedIn) {
+    // attach the deleteThough function to the window object.
+    window.deleteThought = deleteThought;
+
     request
         .get("/api/thoughts")
         .end(function(err, res) {
@@ -137,8 +140,5 @@ function deleteThought(id) {
 }
 
 module.exports = function() {
-    util.onLoad("thoughts", function() {
-        util.checkAuth(thoughts);
-        window.deleteThought = deleteThought;
-    });
+    util.onLoad("thoughts", thoughts);
 };

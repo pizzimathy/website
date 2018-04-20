@@ -16,6 +16,4 @@ posts();
 post();
 home();
 
-util.onLoad("contact", function() {
-    util.checkAuth(util.u);
-});
+util.onLoad("contact");

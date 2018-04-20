@@ -59,7 +59,7 @@ function save(existing, created) {
             Post = {};
 
         if (existing) saveExistingPost(window.location.pathname.split("/")[2], Post, editor, title, subtitle, created, published);
-        else saveNewPost(Post, editor, title, subtitle);
+        else saveNewPost(Post, editor, title, subtitle, published);
     });
 }
 
@@ -219,17 +219,15 @@ function saveThought() {
 
 module.exports = function() {
     var loc = window.location.pathname.split("/");
+
+    // if we aren't editing an existing post, do the first thing.
     if (loc.length < 3) {
-        util.onLoad("editor", function() {
-            util.checkAuth(function(user) {
-                redirectIfNotAuth(user, false);
-            });
+        util.onLoad("editor", function(user) {
+            redirectIfNotAuth(user, false);
         });
     } else if (loc.length >= 3 && loc[1] == "editor") {
-        util.onLoad("isEditor", function() {
-            util.checkAuth(function(res) {
-                redirectIfNotAuth(res, true);
-            });
+        util.onLoad("isEditor", function(user) {
+            redirectIfNotAuth(user, true);
         });
     }
 };

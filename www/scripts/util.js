@@ -35,7 +35,7 @@ function u(u) { +u; }
  */
 function onLoad(path, callback, errorCallback) {
     document.addEventListener("DOMContentLoaded", function(e) {
-        if (path == "isPost" || path == "isEditor") callback();
+        if (path == "isPost" || path == "isEditor") checkAuth(callback);
         else if (checkPath(path)) checkAuth(callback);
         else if (errorCallback) errorCallback();
     });
@@ -62,12 +62,27 @@ function storeUser(user) {
 function checkAuth(callback) {
     var user = sessionStorage.getItem("user");
 
+    // check for a logged-in user and update the header appropriately
     cosmetics(user);
     
+    /*
+    if:
+        1. there's a user and a callback: we're successfully logged in,
+        so call the callback
+        2. there's a callback but no user: we aren't logged in!
+        3. otherwise, do nothing
+    */
     if (user && callback) callback(user);
     else if (callback) callback(false);
 }
 
+/**
+ * @author Anthony Pizzimenti
+ * @desc Applies cosmetic changes to the header.
+ * @memberof util
+ * @param {object|null} user A stored User object if we're logged in, null otherwise.
+ * @returns {undefined}
+ */
 function cosmetics(user) {
     editorButton(user);
     if (user) createLogoutButton();
