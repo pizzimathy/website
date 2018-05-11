@@ -15,7 +15,7 @@ var funk = require("da_funk"),
  * @returns {undefined}
  */
 function thoughts(loggedIn) {
-    // attach the deleteThough function to the window object.
+    // attach the deleteThought function to the window object.
     window.deleteThought = deleteThought;
 
     request

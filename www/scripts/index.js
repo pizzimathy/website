@@ -8,6 +8,7 @@ var login = require("./login"),
     home = require("./home"),
     thoughts = require("./thoughts");
 
+// load pages with js
 thoughts();
 login();
 editor();
@@ -16,4 +17,6 @@ posts();
 post();
 home();
 
+// load pages with no js
 util.onLoad("contact");
+util.onLoad("quotes");
