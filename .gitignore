@@ -12,3 +12,6 @@ dist/
 
 ## security ##
 lib/util/init.js
+
+## other stuff ##
+.DS_Store

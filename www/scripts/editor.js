@@ -92,7 +92,11 @@ function saveNewPost(Post, editor, title, subtitle, published) {
         .set("Content-Type", "application/json")
         .end(function(err, res) {
             if (err) window.alert("Couldn't be saved.");
-            else if (res) window.alert("Saved.");
+            else if (res) {
+                window.alert("Saved.");
+                // I'm doing this because otherwise we save a bunch of new posts.
+                window.location.pathname = "/posts"
+            }
         });
 }
 
