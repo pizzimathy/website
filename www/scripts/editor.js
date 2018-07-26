@@ -95,7 +95,7 @@ function saveNewPost(Post, editor, title, subtitle, published) {
             else if (res) {
                 window.alert("Saved.");
                 // I'm doing this because otherwise we save a bunch of new posts.
-                window.location.pathname = "/posts"
+                window.location.pathname = "/posts";
             }
         });
 }
