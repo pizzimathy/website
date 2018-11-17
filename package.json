@@ -13,6 +13,7 @@
         "build:dev": "npm run clean && npm run compile:sass && npm run compile:js:dev && npm run copy",
         "build:prod:test": "npm run test && npm run clean && npm run compile:sass && npm run compile:js:prod && npm run copy",
         "build:prod": "npm run clean && npm run compile:sass && npm run compile:js:prod && npm run copy",
+        "compress:css": "uglifycss ./dist/styles/*.css --debug > compressed.css",
         "clean": "rm -rf dist && mkdir dist",
         "copy": "./util.sh copy",
         "test": "npm run test_frontend && npm run test_backend",
@@ -22,6 +23,7 @@
     "author": "Anthony Pizzimenti",
     "license": "MIT",
     "dependencies": {
+        "compression": "^1.7.3",
         "da_funk": "^2.0.0",
         "superagent": "^3.8.2"
     },
@@ -33,7 +35,8 @@
         "jsdoc": "^3.5.5",
         "minami": "^1.2.3",
         "morgan": "^1.9.0",
-        "webpack": "^4.1.1",
-        "webpack-cli": "^2.0.12"
+        "uglifycss": "0.0.29",
+        "webpack": "^4.21.0",
+        "webpack-cli": "^3.1.2"
     }
 }

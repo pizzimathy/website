@@ -9,7 +9,7 @@
 function configureEditor() {
     // instantiate an editor
     var toolbarOptions = [
-            ["bold", "italic", "underline", "strike"],
+            ["bold", "italic", "underline", "strike", {"script": "sub"}, {"script": "super"}],
             ["blockquote", "code-block"],
             [{ "header": 1 }, { "header": 2 }],
             [{ "list": "ordered"}, { "list": "bullet" }],
