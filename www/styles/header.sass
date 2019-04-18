@@ -1,27 +1,36 @@
-@import "https://fonts.googleapis.com/css?family=Libre+Franklin"
+
+@import "https://fonts.googleapis.com/css?family=Prata"
+
+$font-stack: "Prata", "Times New Roman", "Times", "serif"
+
 #menu
     padding: 0
     margin: 0
-    text-align: left
+    display: flex
+    list-style-type: none
+    justify-content: left
 
     li
         display: inline-block
-        list-style-type: none
+
 
 .listitem
     padding: 10px 10px 10px 0
+    border-radius: 5px
+    font-size: 14px
+    margin-right: 10px
 
     a
         &:link, &:hover, &:active, &:visited
-            color: white
+            color: black
             text-decoration: none
 
 #header
-    font-family: "Libre Franklin", "Helvetica", "sans-serif"
+    font-family: $font-stack
     text-align: left
     margin: 50px auto 0px auto
     width: 600px
-    color: white
+    color: black
     
     h1, h2, h3, h4
         margin: 5px 0 5px 0

@@ -1,21 +1,24 @@
-@import "https://fonts.googleapis.com/css?family=Libre+Franklin|Ubuntu+Mono"
+@import "https://fonts.googleapis.com/css?family=Ubuntu+Mono|Prata|Cabin"
 
-$font-stack: "Libre Franklin", "Helvetica", "sans-serif"
+$font-stack: "Prata", "Times New Roman", "Times", "serif"
+$body-stack: "Cabin", "Helvetica", "sans-serif"
+$text-color: black
 
 #stage
     width: 600px
     margin: 0 auto
     padding: 10px
-    font-family: $font-stack
+    font-family: $body-stack
     text-align: left
-    font-size: 14px
-    border-top: 1px solid white
-    color: white
+    font-size: 16px
+    color: $text-color
 
     h1, h2, h3, h4
+        font-family: $font-stack
         text-align: left
 
     #title, #subtitle, #created, #updated
+        font-family: $font-stack
         display: inline
 
     #title
@@ -65,13 +68,14 @@ $font-stack: "Libre Franklin", "Helvetica", "sans-serif"
         list-style: circle
 
     blockquote
+        font-family: $body-stack
         color: #727984
         font-style: italic
 
     table
         margin: 0 auto
         padding: 0
-        color: black
+        color: $text-color
         
         tr
             border-top: 1px solid #cccccc
@@ -104,7 +108,7 @@ $font-stack: "Libre Franklin", "Helvetica", "sans-serif"
             margin-bottom: 0
 
 body
-    background-color: #232323
+    background-color: white
 
     button
         &::placeholder
@@ -118,7 +122,8 @@ body
         padding: 5px
         border: 1px solid black
         margin: 5px
-        background-color: white
+        background-color: black
+        color: white
 
     .spacer
         height: 50px

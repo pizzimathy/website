@@ -26,7 +26,7 @@ function u(u) { +u; }
 
 /**
  * @author Anthony Pizzimenti
- * @desc When the page at /<path> loads, call the callback.
+ * @desc When the page at /<path> loads, load the header, and call the callback.
  * @memberof util
  * @param {string} path Desired path.
  * @param {function} callback Called when all DOM content has loaded.
@@ -35,6 +35,8 @@ function u(u) { +u; }
  */
 function onLoad(path, callback, errorCallback) {
     document.addEventListener("DOMContentLoaded", function(e) {
+        // First, inject the header in *all* si
+        if (checkPath(path) || path == "isPost" || path == "isEditor") injectHeader();
         if (path == "isPost" || path == "isEditor") checkAuth(callback);
         else if (checkPath(path)) checkAuth(callback);
         else if (errorCallback) errorCallback();
@@ -135,6 +137,34 @@ function logout(callback) {
         .end(function(err, res) {
             callback(res);
         });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Injects header HTML into each page.
+ * @memberof util
+ * @returns {undefined}
+ */
+function injectHeader() {
+    var body = Array.from(document.getElementsByTagName("body"))[0],
+        child = document.createElement("div"),
+        html = `
+            <h1>exercise to the reader</h1>
+            <h4>A math + computer science + politics + ... + anything blog.</h4>
+            <ul id="menu">
+                <li class="listitem"><a href="/">Home</a></li>
+                <li class="listitem"><a href="/contact">Contact</a></li>
+                <li class="listitem"><a href="/posts">Posts</a></li>
+                <li class="listitem" id="editor-link"><a href="/editor">Editor</a></li>
+                <li class="listitem"><a id="login" href="/login">Log In</a></li>
+            </ul>
+        `;
+    
+    // Set the proper id on the child node, append it to the body, and we're
+    // good to go.
+    child.id = "header";
+    child.innerHTML = html;
+    body.prepend(child);
 }
 
 module.exports = {
