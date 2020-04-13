@@ -10,7 +10,7 @@ var request = require("superagent"),
 /**
  * @author Anthony Pizzimenti
  * @desc Adds an image (from url) to the editor.
- * @memberof editor
+ * @memberOf editor
  * @returns {undefined}
  */
 function addImage() {
@@ -28,8 +28,23 @@ function addImage() {
 
 /**
  * @author Anthony Pizzimenti
+ * @desc Adds embeddable HTML to the editor.
+ * @memberOf editor
+ * @returns {undefined}
+ */
+function addEmbed() {
+    document.getElementById("addEmbed-button").addEventListener("click", function() {
+        var editor = document.getElementsByClassName("ql-editor")[0],
+            html = window.prompt("Paste the embeddable HTML here:");
+
+        if (html) editor.innerHTML += html;
+    });
+}
+
+/**
+ * @author Anthony Pizzimenti
  * @desc Cancels editing and returns the window to the list of posts.
- * @memberof editor
+ * @memberOf editor
  * @returns {undefined}
  */
 function cancel() {
@@ -43,7 +58,7 @@ function cancel() {
 /**
  * @author Anthony Pizzimenti
  * @desc Grabs the contents of the editor and passes them to the appropriate save method.
- * @memberof editor
+ * @memberOf editor
  * @param {boolean} existing Is there a post with this user id already in the database?
  * @param {number} created Time of the post's creation.
  * @returns {undefined}
@@ -66,7 +81,7 @@ function save(existing, created) {
 /**
  * @author Anthony Pizzimenti
  * @desc Saves a new post.
- * @memberof editor
+ * @memberOf editor
  * @param {object} Post The existing Post object.
  * @param {string} editor Contents of the editor field.
  * @param {string} title Contents of the title field.
@@ -103,7 +118,7 @@ function saveNewPost(Post, editor, title, subtitle, published) {
 /**
  * @author Anthony Pizzimenti
  * @desc Saves an existing post.
- * @memberof editor
+ * @memberOf editor
  * @param {string} id The post's database unique id.
  * @param {object} Post A Post object.
  * @param {string} editor Contents of the editor field
@@ -134,7 +149,7 @@ function saveExistingPost(id, Post, editor, title, subtitle, created, published)
 /**
  * @author Anthony Pizzimenti
  * @desc Retrieves a specific post.
- * @memberof editor
+ * @memberOf editor
  * @param {function} callback Called when the request to /api/posts completes.
  * @param {string} id Requested post's unique id.
  * @returns {undefined}
@@ -151,7 +166,7 @@ function retrievePost(callback, id) {
 /**
  * @author Anthony Pizzimenti
  * @desc Populates the editor with existing post data.
- * @memberof editor
+ * @memberOf editor
  * @param {object} data Post data.
  * @returns {undefined}
  */
@@ -171,7 +186,7 @@ function populate(data) {
 /**
  * @author Anthony Pizzimenti
  * @desc Checks if there's a user logged in. If not, redirect them to the login page.
- * @memberof editor
+ * @memberOf editor
  * @see editor.addImage
  * @see editor.cancel
  * @see editor.configureEditor
@@ -190,13 +205,14 @@ function redirectIfNotAuth(res, existing) {
 
     config();
     addImage();
+    addEmbed();
     cancel();
 }
 
 /**
  * @author Anthony Pizzimenti
  * @desc Saves a thought.
- * @memberof editor
+ * @memberOf editor
  * @returns {undefined}
  */
 function saveThought() {
