@@ -37,7 +37,7 @@ function addEmbed() {
         var editor = document.getElementsByClassName("ql-editor")[0],
             html = window.prompt("Paste the embeddable HTML here:");
 
-        if (html) editor.innerHTML += html;
+        if (html) editor.innerHTML += html + "</br>"
     });
 }
 
